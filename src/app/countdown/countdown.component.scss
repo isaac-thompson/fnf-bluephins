@@ -1,0 +1,82 @@
+.countdown-section {
+  background: #021630;
+  padding: 80px 24px;
+}
+
+.countdown {
+  display: flex;
+  justify-content: center;
+  gap: clamp(16px, 4vw, 48px);
+  flex-wrap: wrap;
+  margin-bottom: 32px;
+
+  &__unit {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 100px;
+  }
+
+  &__number {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: clamp(3.5rem, 10vw, 7rem);
+    font-weight: 900;
+    line-height: 1;
+    color: var(--white);
+    background: linear-gradient(180deg, #fff 0%, #009adf 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    position: relative;
+    padding: 16px 24px;
+    min-width: 120px;
+    text-align: center;
+
+    // Orange glow box
+    &::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border: 2px solid rgba(255,104,31,0.3);
+      border-radius: 12px;
+      background: rgba(0,30,67,0.6);
+      z-index: -1;
+      box-shadow: 0 0 30px rgba(255,104,31,0.1), inset 0 1px 0 rgba(255,255,255,0.05);
+    }
+  }
+
+  &__label {
+    margin-top: 12px;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: var(--gray);
+  }
+
+  &__started {
+    text-align: center;
+    padding: 40px;
+
+    span {
+      font-size: 4rem;
+      display: block;
+      margin-bottom: 16px;
+    }
+
+    p {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 2rem;
+      font-weight: 800;
+      color: var(--orange);
+    }
+  }
+
+  &__date {
+    text-align: center;
+    color: var(--gray);
+    font-size: 0.9rem;
+    letter-spacing: 0.05em;
+  }
+}

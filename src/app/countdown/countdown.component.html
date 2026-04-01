@@ -1,0 +1,23 @@
+<section class="countdown-section">
+  <div class="container">
+    <h2 class="section-title">Race <span>Clock</span></h2>
+    <p class="section-subtitle">Time remaining until the starting gun</p>
+    <div class="divider"></div>
+
+    <div class="countdown" *ngIf="!eventStarted; else started">
+      <div class="countdown__unit" *ngFor="let unit of units">
+        <div class="countdown__number">{{ unit.value }}</div>
+        <div class="countdown__label">{{ unit.label }}</div>
+      </div>
+    </div>
+
+    <ng-template #started>
+      <div class="countdown__started">
+        <span>🏊</span>
+        <p>We're racing! The meet is underway!</p>
+      </div>
+    </ng-template>
+
+    <p class="countdown__date">May 29, 2026 · 9:00 AM AST · Bell Aliant Centre, Charlottetown PE</p>
+  </div>
+</section>

@@ -1,0 +1,34 @@
+<section class="merch">
+  <div class="container">
+    <h2 class="section-title">Official <span>Merch</span></h2>
+    <p class="section-subtitle">Gear up with the official Fast &amp; Furious 2026 clothing line — exclusive designs printed by AllStar Cresting</p>
+    <div class="divider"></div>
+
+    <div class="merch__grid">
+      <a class="merch__item"
+         *ngFor="let item of items"
+         href="https://allstarcresting.ca/charlottetown_bluephins/shop/page/fastfurious"
+         target="_blank"
+         rel="noopener"
+         [attr.aria-label]="item.label + ' — Shop Now'">
+        <div class="merch__img-wrap">
+          <img [src]="item.src" [alt]="item.label" loading="lazy" />
+          <div class="merch__overlay">
+            <span class="merch__shop-btn">Shop Now →</span>
+          </div>
+        </div>
+        <p class="merch__label">{{ item.label }}</p>
+      </a>
+    </div>
+
+    <div class="merch__cta">
+      <a href="https://allstarcresting.ca/charlottetown_bluephins/shop/page/fastfurious"
+         target="_blank"
+         rel="noopener"
+         class="btn btn-primary">
+        View Full Store
+      </a>
+      <p class="merch__partner">Official clothing by <strong>AllStar Cresting</strong></p>
+    </div>
+  </div>
+</section>

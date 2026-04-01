@@ -1,0 +1,164 @@
+/* =========================================
+   FNF 2026 — Global Styles
+   Colours extracted from brand assets:
+   --orange:  #ff681f  (F&F logo orange)
+   --blue:    #009adf  (Bluephins blue)
+   --navy:    #001e43  (Bluephins dark navy)
+   --teal:    #44b4c8  (pool water teal from social images)
+   ========================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,400;0,600;0,700;0,800;0,900;1,800&family=Barlow:wght@400;500;600&display=swap');
+
+:root {
+  --orange:  #ff681f;
+  --orange-dark: #d94f0a;
+  --blue:    #009adf;
+  --navy:    #001e43;
+  --teal:    #44b4c8;
+  --teal-dark: #2a8fa0;
+  --white:   #ffffff;
+  --off-white: #f0f8ff;
+  --gray:    #8a9ab0;
+  --section-bg: #021630;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Barlow', sans-serif;
+  background-color: var(--navy);
+  color: var(--white);
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4 {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+}
+
+a {
+  color: var(--orange);
+  text-decoration: none;
+  transition: color 0.2s;
+  &:hover { color: var(--blue); }
+}
+
+section {
+  padding: 80px 24px;
+}
+
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.section-title {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--white);
+  text-align: center;
+  margin-bottom: 12px;
+
+  span {
+    color: var(--orange);
+  }
+}
+
+.section-subtitle {
+  text-align: center;
+  color: var(--gray);
+  font-size: 1.1rem;
+  margin-bottom: 48px;
+}
+
+.divider {
+  width: 60px;
+  height: 4px;
+  background: var(--orange);
+  margin: 16px auto 48px;
+  border-radius: 2px;
+}
+
+.btn {
+  display: inline-block;
+  padding: 14px 32px;
+  border-radius: 4px;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 700;
+  font-size: 1.1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  cursor: pointer;
+  border: none;
+  transition: all 0.2s;
+
+  &.btn-primary {
+    background: var(--orange);
+    color: var(--white);
+    &:hover {
+      background: var(--orange-dark);
+      color: var(--white);
+      transform: translateY(-2px);
+    }
+  }
+
+  &.btn-outline {
+    background: transparent;
+    color: var(--white);
+    border: 2px solid var(--white);
+    &:hover {
+      background: var(--white);
+      color: var(--navy);
+      transform: translateY(-2px);
+    }
+  }
+
+  &.btn-blue {
+    background: var(--blue);
+    color: var(--white);
+    &:hover {
+      background: #007bbf;
+      color: var(--white);
+      transform: translateY(-2px);
+    }
+  }
+}
+
+.placeholder-badge {
+  display: inline-block;
+  background: rgba(255,104,31,0.15);
+  border: 1px dashed var(--orange);
+  color: var(--orange);
+  font-size: 0.75rem;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  padding: 4px 10px;
+  border-radius: 3px;
+  margin-bottom: 12px;
+}
+
+/* Wave separator utility */
+.wave-sep {
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+  svg {
+    display: block;
+    width: 100%;
+  }
+}

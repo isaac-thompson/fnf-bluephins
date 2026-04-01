@@ -1,0 +1,47 @@
+.hotels {
+  background: var(--navy);
+  padding: 80px 24px;
+
+  &__placeholder {
+    max-width: 620px;
+    margin: 0 auto;
+    text-align: center;
+    border: 2px dashed rgba(255,104,31,0.3);
+    border-radius: 16px;
+    padding: 56px 40px;
+    background: rgba(255,104,31,0.03);
+  }
+
+  &__placeholder-icon {
+    font-size: 3.5rem;
+    margin: 12px 0 20px;
+    display: block;
+  }
+
+  h3 {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 1.8rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    color: var(--white);
+    margin-bottom: 16px;
+  }
+
+  p {
+    color: var(--gray);
+    font-size: 0.97rem;
+    line-height: 1.7;
+    margin-bottom: 16px;
+  }
+
+  &__location-note {
+    margin-top: 24px;
+    font-size: 0.9rem !important;
+    color: rgba(255,255,255,0.5) !important;
+    line-height: 1.8 !important;
+
+    strong {
+      color: var(--blue);
+    }
+  }
+}
