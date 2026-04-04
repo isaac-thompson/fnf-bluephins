@@ -1,0 +1,54 @@
+<section class="livestream">
+  <div class="livestream__inner">
+
+    <div class="livestream__header">
+      <span class="livestream__badge" [class.livestream__badge--live]="isLive()">
+        <span class="livestream__badge-dot"></span>
+        {{ isLive() ? 'LIVE NOW' : 'LIVE STREAM' }}
+      </span>
+      <h2 class="livestream__title">Watch the Action Live</h2>
+      <p class="livestream__subtitle">
+        Can't make it to the Bell Aliant Centre? Catch every race from anywhere.
+      </p>
+    </div>
+
+    <!-- ── LIVE STATE: embedded player ── -->
+    @if (isLive()) {
+      <div class="livestream__player-wrap">
+        <iframe
+          class="livestream__player"
+          [src]="safeStreamUrl()"
+          title="Fast &amp; Furious 2026 Live Stream"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowfullscreen>
+        </iframe>
+      </div>
+      <div class="livestream__actions">
+        <a [href]="externalUrl()" target="_blank" rel="noopener noreferrer" class="btn btn-outline">
+          ▶&nbsp; Watch on YouTube
+        </a>
+      </div>
+    }
+
+    <!-- ── COMING SOON STATE ── -->
+    @if (!isLive()) {
+      <div class="livestream__coming-soon">
+        <div class="livestream__icon">
+          <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <circle cx="32" cy="32" r="30" stroke="currentColor" stroke-width="2.5" opacity="0.3"/>
+            <polygon points="26,20 48,32 26,44" fill="currentColor"/>
+          </svg>
+        </div>
+        <p class="livestream__coming-label">Coming May 29 – 31, 2026</p>
+        <p class="livestream__coming-desc">
+          The live stream link will appear here once the meet begins. Bookmark this page and check back on meet day!
+        </p>
+        <div class="livestream__pulse-bars" aria-hidden="true">
+          <span></span><span></span><span></span><span></span><span></span>
+        </div>
+      </div>
+    }
+
+  </div>
+</section>

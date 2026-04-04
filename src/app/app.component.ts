@@ -8,6 +8,7 @@ import { PrizesComponent } from './prizes/prizes.component';
 import { HotelsComponent } from './hotels/hotels.component';
 import { SponsorsComponent } from './sponsors/sponsors.component';
 import { FooterComponent } from './footer/footer.component';
+import { LiveStreamComponent} from './live-stream/live-stream.component';
 
 @Component({
   selector: 'app-root',
@@ -16,7 +17,7 @@ import { FooterComponent } from './footer/footer.component';
     HeroComponent,
     EventInfoComponent,
     MeetInfoComponent,
-    CountdownComponent,
+    LiveStreamComponent,
     MerchComponent,
     PrizesComponent,
     HotelsComponent,

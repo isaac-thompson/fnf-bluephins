@@ -1,0 +1,180 @@
+.livestream {
+  background: #021630;
+  padding: 80px 24px;
+  border-top: 1px solid rgba(255, 104, 31, 0.15);
+
+  &__inner {
+    max-width: 900px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+  }
+
+  // ── Header ──────────────────────────────────────────────────────────────
+  &__header {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+  }
+
+  &__badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(255, 104, 31, 0.12);
+    border: 1px solid rgba(255, 104, 31, 0.35);
+    color: var(--orange, #ff681f);
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700;
+    font-size: 0.8rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    padding: 6px 14px;
+    border-radius: 3px;
+
+    &--live {
+      background: rgba(220, 38, 38, 0.15);
+      border-color: rgba(220, 38, 38, 0.5);
+      color: #f87171;
+    }
+  }
+
+  &__badge-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: currentColor;
+    flex-shrink: 0;
+
+    .livestream__badge--live & {
+      animation: pulse-dot 1.4s ease-in-out infinite;
+    }
+  }
+
+  &__title {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 800;
+    font-size: clamp(2rem, 5vw, 3rem);
+    color: #ffffff;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    margin: 0;
+    line-height: 1.05;
+  }
+
+  &__subtitle {
+    font-family: 'Barlow', sans-serif;
+    font-size: 1.05rem;
+    color: rgba(255, 255, 255, 0.6);
+    margin: 0;
+    max-width: 500px;
+  }
+
+  // ── Live Player ─────────────────────────────────────────────────────────
+  &__player-wrap {
+    width: 100%;
+    position: relative;
+    padding-bottom: 56.25%; // 16:9
+    height: 0;
+    border-radius: 6px;
+    overflow: hidden;
+    box-shadow: 0 0 0 1px rgba(255, 104, 31, 0.25), 0 24px 60px rgba(0, 0, 0, 0.6);
+  }
+
+  &__player {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 6px;
+  }
+
+  &__actions {
+    display: flex;
+    justify-content: center;
+  }
+
+  // ── Coming Soon ─────────────────────────────────────────────────────────
+  &__coming-soon {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px dashed rgba(255, 104, 31, 0.3);
+    border-radius: 8px;
+    padding: 56px 32px;
+    text-align: center;
+  }
+
+  &__icon {
+    width: 72px;
+    height: 72px;
+    color: var(--orange, #ff681f);
+    opacity: 0.7;
+
+    svg {
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  &__coming-label {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700;
+    font-size: 1.4rem;
+    color: var(--orange, #ff681f);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin: 0;
+  }
+
+  &__coming-desc {
+    font-family: 'Barlow', sans-serif;
+    font-size: 0.98rem;
+    color: rgba(255, 255, 255, 0.5);
+    max-width: 480px;
+    margin: 0;
+    line-height: 1.6;
+  }
+
+  // ── Animated signal bars ─────────────────────────────────────────────────
+  &__pulse-bars {
+    display: flex;
+    align-items: flex-end;
+    gap: 5px;
+    height: 28px;
+
+    span {
+      display: block;
+      width: 5px;
+      border-radius: 3px;
+      background: var(--orange, #ff681f);
+      opacity: 0.5;
+      animation: bar-pulse 1.2s ease-in-out infinite;
+
+      @for $i from 1 through 5 {
+        &:nth-child(#{$i}) {
+          height: #{8 + ($i * 4)}px;
+          animation-delay: #{($i - 1) * 0.12}s;
+        }
+      }
+    }
+  }
+}
+
+// ── Animations ─────────────────────────────────────────────────────────────
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.3; transform: scale(0.7); }
+}
+
+@keyframes bar-pulse {
+  0%, 100% { opacity: 0.25; transform: scaleY(0.5); }
+  50% { opacity: 0.8; transform: scaleY(1); }
+}
