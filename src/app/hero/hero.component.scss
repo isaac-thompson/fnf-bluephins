@@ -22,6 +22,40 @@
     }
   }
 
+  // SERF logo pinned top-right — soft faded edges blending into hero gradient
+  &__serf-corner {
+    position: absolute;
+    top: 16px;
+    right: 20px;
+    z-index: 10;
+    display: block;
+    animation: fadeIn 1s ease 0.3s both;
+    background: white;
+    border-radius: 10px;
+    padding: 10px 16px;
+
+    // Soft fade mask — fades all four edges into transparency
+    -webkit-mask-image: radial-gradient(
+        ellipse 80% 80% at 50% 50%,
+        black 40%,
+        transparent 100%
+    );
+    mask-image: radial-gradient(
+        ellipse 80% 80% at 50% 50%,
+        black 40%,
+        transparent 100%
+    );
+
+    transition: transform 0.2s;
+    &:hover { transform: translateY(-1px); }
+
+    img {
+      width: 160px;
+      height: auto;
+      display: block;
+    }
+  }
+
   &__inner {
     position: relative;
     z-index: 2;
@@ -92,6 +126,13 @@
     align-items: center;
     padding: 48px 24px 64px;
     gap: 40px;
+  }
+}
+
+@media (max-width: 600px) {
+  .hero {
+    &__crest-corner img { width: 100px; }
+    &__serf-corner img { width: 110px; }
   }
 }
 

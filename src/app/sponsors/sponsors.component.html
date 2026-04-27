@@ -4,23 +4,42 @@
     <p class="section-subtitle">Fast &amp; Furious 2026 is made possible by the generous support of our sponsors</p>
     <div class="divider"></div>
 
-    <div class="sponsors__placeholder">
-      <div class="placeholder-badge">Coming Soon</div>
-      <div class="sponsors__placeholder-icon">🤝</div>
-      <h3>Sponsor Announcements Coming Soon</h3>
-      <p>We're proud to be working with incredible local and national partners. Sponsor logos and details will be posted here shortly.</p>
+    <!-- ── Presenting Sponsors ─────────────────────────────────────── -->
+    <div class="sponsors__tier">
+      <p class="sponsors__tier-label">Proudly Supported By</p>
+      <div class="sponsors__presenting-grid">
 
-      <!-- Placeholder sponsor logo slots — swap with real logos when available -->
-      <div class="sponsors__logo-grid">
-        <div class="sponsor-slot" *ngFor="let s of placeholderSlots">
-          <span>Sponsor</span>
-        </div>
+        <a href="https://www.charlottetown.ca" target="_blank" rel="noopener" class="sponsor-card sponsor-card--presenting" aria-label="City of Charlottetown SERF – Special Events Reserve Fund">
+          <img src="images/SERF.png" alt="Charlottetown SERF Special Events Reserve Fund" />
+          <span class="sponsor-card__name">Special Events Reserve Fund</span>
+        </a>
+
+        <a href="https://www.charlottetown.ca" target="_blank" rel="noopener" class="sponsor-card sponsor-card--presenting" aria-label="City of Charlottetown">
+          <img src="images/charlottetown.png" alt="City of Charlottetown – Great things happen here" />
+          <span class="sponsor-card__name">City of Charlottetown</span>
+        </a>
+
       </div>
+      <p class="sponsors__levy-note">
+        Proudly supported by the Charlottetown Tourism Accommodation Levy
+      </p>
+    </div>
 
+    <!-- ── Additional Sponsors ─────────────────────────────────────── -->
+    <div class="sponsors__additional">
+      <p class="sponsors__tier-label">Additional Sponsors</p>
+      <div class="sponsors__logo-grid">
+        @for (s of placeholderSlots; track $index) {
+          <div class="sponsor-slot">
+            <span>Sponsor</span>
+          </div>
+        }
+      </div>
       <p class="sponsors__contact">
         Interested in sponsoring Fast &amp; Furious 2026?
         <a href="mailto:info@bluephins.ca">Contact us →</a>
       </p>
     </div>
+
   </div>
 </section>
