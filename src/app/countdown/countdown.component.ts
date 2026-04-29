@@ -15,7 +15,7 @@ interface CountUnit {
 })
 export class CountdownComponent implements OnInit, OnDestroy {
   // May 29 2026 09:00 AM AST (UTC-3)
-  private readonly TARGET = new Date('2026-05-29T09:00:00-03:00').getTime();
+  private readonly TARGET = new Date('2026-05-29T16:30:00-03:00').getTime();
   private intervalId: ReturnType<typeof setInterval> | null = null;
 
   units: CountUnit[] = [
