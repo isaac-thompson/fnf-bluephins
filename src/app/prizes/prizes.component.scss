@@ -138,4 +138,33 @@
     padding: 4px 12px;
     border-radius: 20px;
   }
+
+  &__logo {
+    width: 100%;
+    max-width: 160px;
+    height: auto;
+    display: block;
+    margin: 0 auto 16px;
+    border-radius: 8px;
+
+    &--dark {
+      background: #1a1a1a;
+      padding: 8px;
+      border-radius: 8px;
+    }
+  }
+
+  &--linked {
+    display: block;
+    text-decoration: none;
+
+    &:hover {
+      border-color: var(--orange);
+      transform: translateY(-4px);
+    }
+
+  }
+
+
+
 }
