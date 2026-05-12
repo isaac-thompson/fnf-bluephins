@@ -91,6 +91,13 @@
               "src/styles.scss"
             ]
           }
+        },
+        "deploy": {
+          "builder": "angular-cli-ghpages:deploy",
+          "options": {
+            "baseHref": "/",
+            "cname": "fnf.bluephins.ca"
+          }
         }
       }
     }
