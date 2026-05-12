@@ -12,6 +12,8 @@
 
 .prize-card {
   position: relative;
+  display: flex;
+  flex-direction: column;
   background: rgba(255,255,255,0.03);
   border: 1px solid rgba(0,154,223,0.2);
   border-radius: 14px;
@@ -29,10 +31,73 @@
     background: rgba(255,104,31,0.06);
   }
 
-  &__icon {
-    font-size: 2.6rem;
+  &--basket {
+    border-color: rgba(0,154,223,0.4);
+    background: rgba(0,154,223,0.06);
+    &:hover { border-color: var(--blue); }
+  }
+
+  // ── Image hero (used by both cards) ──────────────────────────────────
+  &__image {
+    margin: -36px -28px 22px -28px;
+    height: 340px;
+    flex-shrink: 0;
+    background: #ffffff;
+    border-radius: 13px 13px 0 0;
+    overflow: hidden;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      display: block;
+    }
+
+    // 50/50 image needs no white backing — it fills edge-to-edge
+    &--5050 {
+      background: transparent;
+    }
+  }
+
+  &__pot-chip {
+    display: inline-block;
+    align-self: center;
+    background: rgba(255,104,31,0.15);
+    border: 1px solid rgba(255,104,31,0.45);
+    color: var(--orange);
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    padding: 6px 14px;
+    border-radius: 20px;
+    margin-bottom: 14px;
+  }
+
+  &__eyebrow {
     display: block;
-    margin-bottom: 16px;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    color: var(--blue);
+    margin-bottom: 8px;
+  }
+
+  &__value {
+    color: var(--white);
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 14px !important;
+
+    strong {
+      color: var(--orange);
+      font-size: 1.15rem;
+      font-weight: 800;
+    }
   }
 
   h3 {
@@ -52,7 +117,9 @@
 
   &__badge {
     display: inline-block;
-    margin-top: 16px;
+    margin-top: auto; // pushes badge to the bottom so cards align nicely
+    padding-top: 16px;
+    align-self: center;
     background: var(--orange);
     color: var(--white);
     font-family: 'Barlow Condensed', sans-serif;
@@ -62,7 +129,31 @@
     letter-spacing: 0.1em;
     padding: 4px 12px;
     border-radius: 20px;
+
+    &--blue { background: var(--blue); }
+
+    &--pulse {
+      box-shadow: 0 0 0 0 rgba(255,104,31,0.55);
+      animation: badge-pulse 2s ease-out infinite;
+    }
   }
+}
+
+// Badge needs a wrapper margin trick instead since padding-top conflicts
+// with the badge's own padding. Use this cleaner version:
+.prize-card > .prize-card__badge {
+  margin-top: 20px;
+  padding: 4px 12px;
+}
+
+@keyframes badge-pulse {
+  0%   { box-shadow: 0 0 0 0 rgba(255,104,31,0.55); }
+  70%  { box-shadow: 0 0 0 10px rgba(255,104,31,0); }
+  100% { box-shadow: 0 0 0 0 rgba(255,104,31,0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .prize-card__badge--pulse { animation: none; }
 }
 
 // Vendors
@@ -162,9 +253,5 @@
       border-color: var(--orange);
       transform: translateY(-4px);
     }
-
   }
-
-
-
 }
